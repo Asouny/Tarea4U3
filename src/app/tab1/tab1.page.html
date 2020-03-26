@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     To do List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Buscar</ion-label>
+      <ion-input type="text" [(ngModel)]="search" (keyup)="filter()"></ion-input>
+    </ion-item>
+
+    
+    <ion-list-header>
+      <ion-label>Notas</ion-label>
+    </ion-list-header>
+    <div *ngFor="let note of notes; index as i">
+        <ion-item (click)="showNote()">
+          <ion-label>{{note.title}}</ion-label>
+          <ion-chip color="success">
+            <ion-label>{{note.date}}</ion-label>
+          </ion-chip>
+        </ion-item>
+        <ion-item-options>
+        </ion-item-options>
+      
+
+    </div>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color='success' (click)="newNotes()">
+        <ion-icon name="add-circle-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+
+
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Estudiantes activos</ion-label>
+    </ion-list-header>
+    <div *ngFor="let student of students; index as i">
+      <ion-item *ngIf = "student.active">
+        <ion-label>{{student.name}}</ion-label>
+      </ion-item>
+    </div>
+  </ion-list>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar una nota</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="ion-padding" [formGroup]="myForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Titulo de la nota</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="myForm.get('title').errors && (myForm.get('title').dirty ||
+    myForm.get('title').touched || submitted)">
+      <ion-label color="danger">Ingrese un titulo valido</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nota: </ion-label>
+      <ion-input type="text" formControlName="content"></ion-input>
+  </ion-item>
+  </ion-list>
+<ion-button (click)="saveNote()" expand="block" shape="round">
+  Guardar
+</ion-button>
+
+  </form>
+</ion-content>
